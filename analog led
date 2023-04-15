@@ -1,0 +1,23 @@
+analogLED
+void setup() {
+  pinMode(11,OUTPUT);
+}
+
+void loop() {
+  int i=0;
+  while(i<=255)
+  {
+    analogWrite(11,i);
+    i++;
+    delay(250);
+  }
+
+int j=255;
+  while(j>=0)
+  {
+    analogWrite(11,j);
+   j--;
+    delay(250);
+  }
+
+}
