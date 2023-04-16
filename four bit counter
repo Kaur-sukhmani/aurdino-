@@ -1,0 +1,26 @@
+void setup() {
+  pinMode(2,OUTPUT);
+  pinMode(3,OUTPUT);
+  pinMode(4,OUTPUT);
+  pinMode(5,OUTPUT);
+
+}
+
+void loop() {
+  for(int i=0;i<16;i++)
+  {
+    int a=i%2;
+    int b=(i/2)%2;
+    int c=(i/4)%2;
+    int d=(i/8)%2;
+    digitalWrite(2,a);
+    digitalWrite(3,b);
+    digitalWrite(4,c);
+    digitalWrite(5,d);
+    delay(500);
+    
+    
+    
+  }
+
+}
