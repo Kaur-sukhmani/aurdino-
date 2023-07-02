@@ -1,0 +1,64 @@
+Coding the RoboCar-
+1.Connect the IR sensor pair to the RoboCar (in this case we connect Left IR Pair to A0 PIN and Right IR Pair to A1 PIN).
+2.Create basic movement functions of the RoboCar (Forward, Backward, Left, Right).
+3.Take input from both the sensors and perform the required operation.
+– If Left IR = 0 then, turn Right.
+– If Right IR = 0 then, turn Left.
+void setup() {
+  pinMode(5,OUTPUT); //Right Tyre +ve
+  pinMode(6,OUTPUT); //Right Tyre -ve
+  pinMode(7,OUTPUT); //Left Tyre +ve
+  pinMode(8,OUTPUT); //Left Tyre -ve
+  pinMode(A0,INPUT); //Left IR
+  pinMode(A1,INPUT); //Right IR
+}
+
+void Forward()
+{
+  digitalWrite(5,HIGH);
+  digitalWrite(6,LOW);
+  digitalWrite(7,LOW);
+  digitalWrite(8,HIGH);
+}
+void Backward()
+{
+  digitalWrite(5,LOW);
+  digitalWrite(6,HIGH);
+  digitalWrite(7,HIGH);
+  digitalWrite(8,LOW);
+}
+void Left()
+{
+  digitalWrite(5,HIGH);
+  digitalWrite(6,LOW);
+  digitalWrite(7,LOW);
+  digitalWrite(8,LOW);
+}
+void Right()
+{
+  digitalWrite(5,LOW);
+  digitalWrite(6,LOW);
+  digitalWrite(7,LOW);
+  digitalWrite(8,HIGH);
+}
+void Stop()
+{
+  digitalWrite(5,LOW);
+  digitalWrite(6,LOW);
+  digitalWrite(7,LOW);
+  digitalWrite(8,LOW);
+}
+
+void loop() {
+  Forward();
+  int d0 = digitalRead(A0);  //Input from Left IR Sensor
+  int d1 = digitalRead(A1);  //Input from Right IR Sensor
+  if(d0 ==0)
+  {
+    Right();
+  }
+  else if(d1 == 0)
+  {
+    Left();
+  }  
+}
